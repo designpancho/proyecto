@@ -15,7 +15,7 @@
         <td>: <input id="addDescripcion" placeholder="Descripcion"/></td>
     </tr>
 <!--    <tr>          
-         <td colspan="2" align="center"><div id="addDescripcionMensaje"></div></td>
+         <td colspan="2" align="centerjj"><div id="addDescripcionMensaje"></div></td>
      </tr>-->
     <tr>
         <td>Interprete*</td>
