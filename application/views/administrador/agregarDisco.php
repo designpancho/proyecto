@@ -4,7 +4,7 @@
         <td>: <input id="addid_Disco"  onblur="validaDiscoID(this.value)" placeholder="id Disco"/></td>
     </tr>
     <tr>
-        <td>Nombre*</td>
+        <td>Nombre</td>
         <td>: <input id="addnombre" placeholder="Nombre" /></td>
     </tr>
 <!--     <tr>          
