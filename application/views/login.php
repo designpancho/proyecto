@@ -2,8 +2,8 @@
     <table>
         <caption id="cap">INGRESA AQUI...</caption>
         <tr>
-            <td>USUARIO</td>
-            <td>: <input type="text" id="loginUsuario"  placeholder="Usuario..."></td>
+        <td>USUARIO</td>
+            <td>: <input type="text" id="loginUsuario"  placeholder="12333444"></td>
         </tr>
         <tr>
             <td>CLAVE</td>

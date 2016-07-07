@@ -1,5 +1,8 @@
-<div id="cliPrin"><h3 id="nombreUsuario">hola cliente <?php echo $nombre?></h3>
-    <h3 id="nombreUsuario">Reproducciones <?php echo $cantidadReproducciones?></h3>
+<div id="nombre"><h6 id="nombreUsuario">HOLA  <?php echo $nombre?></h6>
+<h6 id="nombreUsuario">Reproducciones <?php echo $cantidadReproducciones?></h6></div>
+<div id="espacio"></div>
+
+<div id="cliPrin">
             <button id="addPedido" onclick="agregarPedido()">REALIZAR PEDIDO</button>
             <button id="cambioClave" onclick="cambioClave()">CAMBIAR CLAVE</button>
             <button id="btnCerrar">Cerrar Session</button>

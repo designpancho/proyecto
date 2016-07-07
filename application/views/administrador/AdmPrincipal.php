@@ -1,6 +1,7 @@
-
+<div id="nombre"><h3 id="nombreUsuario">hola adm <?php echo $nombre?></h3></div>
+<div id="espacio2"></div>
 <div id="AdmPrin">
-    <h3 id="nombreUsuario">hola adm <?php echo $nombre?></h3>
+    
         <div id="menuAdm">
             <button id="verDisco" >Ver Disco</button>
             <button id="verCliente" >Ver Clientes</button> 
@@ -30,7 +31,7 @@
         <p>No Hay Compras Realizadas</p>
 <?php else:?>
         <table id="tabla">
-            <caption>PEDIDOS</caption>
+            <caption> <img style="width: 4%; margin-bottom: -5px;" src="<?php echo base_url()?>images/carrito.png" />   PEDIDOS</caption>
             <th>ID DISCO</th>
             <th>NOMBRE DISCO</th>
             <th>NOMBRE CLIENTE</th>
@@ -56,6 +57,7 @@
                 
             </tr>
             <?php $i++; endforeach;?>
+            <th colspan="8"><?php echo $fecha?><?php echo "-----"?><?php echo $fechaNueva?></th>
         </table>       
 <!--        <ul>
             <?php echo $links ?>

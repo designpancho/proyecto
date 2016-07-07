@@ -1,7 +1,7 @@
 <table>
     <tr>
         <td>RUT</td>
-        <td>: <input id="addrutClienteEdit" onblur="validaRutClienteEdit(this.value)" readonly="readonly" placeholder="Rut..."/></td>
+        <td>: <input id="addrutClienteEdit" onblur="validaRutClienteEdit(this.value)" readonly="readonly" /></td>
     </tr>
     <tr>
         <td>Nombre</td>

@@ -90,14 +90,18 @@ function validaLogin(){
                                var des=$("#addDescripcion").val();
                                var int=$("#addIntegrante").val();
                                var fec=$("#addFecha").val();
-                               var val=$("#addValor").val();
+                               var valo=$("#addValor").val();
                                var error=false;
-                              if (!error && id.trim().length <=0) {
+                              if (!error && id.trim().length <=0 || parseInt(id)<=1) {
+                             
                                        $("#addDiscoMensaje").html("<h6>"+"El ID ES REQUERIDO Y SOLO NUMERO"+"</h6>");
                                        $("#addDiscoMensaje").fadeIn(100).delay(600).fadeOut(800);
                                        error=true;
                                        $("#addid_Disco").val("");
-                                       $("#addid_Disco").focus();
+//                                     $(this).dialog("close");
+//                                     $("#addDiscoModal").dialog("open");
+//                                     $(this).dialog("open");
+                                  //   $("#addid_Disco").focus();
                               }
                               if (!error && nom.trim().length <=0) {
                                        $("#addDiscoMensaje").html("<h6>"+"El NOMBRE ES REQUERIDO"+"</h6>");
@@ -123,7 +127,7 @@ function validaLogin(){
                                        error=true;
                                        $("#addFecha").focus();
                               }
-                              if (!error && val.trim().length <=0) {
+                              if (!error && valo.trim().length <=0 || parseInt(valo)<=1) {
                                        $("#addDiscoMensaje").html("<h6>"+"EL VALOR ES REQUERIDO Y SOLO NUMEROS"+"</h6>");
                                        $("#addDiscoMensaje").fadeIn(100).delay(600).fadeOut(800);
                                        error=true;
@@ -216,7 +220,7 @@ function validaLogin(){
                                     
                                }else{
                                    addClienteEdit();
-                                   //location.reload();
+                                   location.reload();
                                }
                            }
 
@@ -536,6 +540,26 @@ function verDisco2(){
             
     
 }
+
+function addClienteEdit(){
+     $.post(
+            base_url+"Controlador/addClienteEdit",{
+             rut:$("#addrutClienteEdit").val(),   
+             nombre:$("#addNombreClienteEdit").val(),
+             apellido:$("#addApellidoClienteEdit").val(),
+             direccion:$("#addDireccionClienteEdit").val(),
+             cantidadReproducciones:$("#addcantidadReproduccionesEdit").val(),
+             password:$("#addPasswordClienteEdit").val(),
+             telefono:$("#addTelefonoClienteEdit").val(),
+             correo:$("#addCorreoClienteEdit").val()   
+            },function(){}
+            );
+    
+    
+    
+}
+
+
 
 function addCliente(){
     $.post(

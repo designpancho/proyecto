@@ -27,15 +27,19 @@ class Controlador extends CI_Controller {
                     date_default_timezone_set("America/Santiago");
                     
                     $fecha = date('Y-m-d');
-                    $nuevafecha = strtotime ( '+30 day' , strtotime ( $fecha ) ) ;
+                    $fecha2 = date('d-m-Y');
+                    $nuevafecha = strtotime ( '+30 day' , strtotime ( $fecha2 ) ) ;
+                    $nuevafecha2 = date ( 'd-m-Y' , $nuevafecha );
                     $nuevafecha = date ( 'Y-m-d' , $nuevafecha );
-                     echo $fecha;
-                    echo "----";
-                    echo $nuevafecha;
+//                     echo $fecha;
+//                    
+//                    echo $nuevafecha;
                     
                    
                     $dato2=$this->modelo->pedidos($fecha, $nuevafecha);
                     $data['cantidad']=$dato2->num_rows();
+                    $data['fechaNueva']=$nuevafecha2;
+                    $data['fecha']=$fecha2;
 //                    $this->load->library('pagination');
 //		    $config['base_url'] = base_url().'Controlador/index';
 //		   $config['total_rows'] = $dato2->num_rows();
@@ -188,6 +192,20 @@ class Controlador extends CI_Controller {
             
             
         }
+        function addClienteEdit(){
+            $rut=$this->input->post("rut");
+            $nombre=$this->input->post("nombre");
+            $apellido=$this->input->post("apellido");
+            $direccion=$this->input->post("direccion");
+            $password=$this->input->post("password");
+            $telefono=$this->input->post("telefono");
+            $correo=$this->input->post("correo");
+            $cantidadReproducciones=$this->input->post("cantidadReproducciones");
+            
+            $this->modelo->insertarClienteEdit($rut,$nombre,$apellido,$direccion,$password,$cantidadReproducciones,$telefono,$correo);
+            
+        }
+        
         
         function addPedido(){
             

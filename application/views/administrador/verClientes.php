@@ -3,7 +3,7 @@
         <p>No Hay Compras Realizadas</p>
 <?php else:?>
         <table id="tabla">
-            <caption>CLIENTE</caption>
+            <caption><img style="width: 4%; margin-bottom: -8px;" src="<?php echo base_url()?>images/cliente.png" />CLIENTE</caption>
             
             <th>RUT</th>
             <th>NOMBRE</th>

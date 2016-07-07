@@ -19,7 +19,7 @@
     </tr>
     <tr>
         <td>CANTIDAD</td>
-        <td>: <input id="addCantidad" onblur="calculoValor(this.value)" placeholder="Cantidad..."/></td>
+        <td>: <input id="addCantidad" onblur="calculoValor(this.value)" maxlength="11" type="number" placeholder="Cantidad..."/></td>
     </tr>
    <tr>
         <td>FECHA ENTREGA</td>

@@ -24,10 +24,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <div id="pagina">
             <div id="header">
                  <div id="menuPrincipal">
-                  <nav>
                      
-                    <ul>
-                        <img id="logo" src="<?php echo base_url()?>images/duplidi.png" />
+                     <img id="logoDuplidi" src="<?php echo base_url()?>images/logowebletranegra.png" />
+                     <font  color="#FFFF00" face="Futura Lt BT">I </font><font face="Futura Lt BT"><a href="duplicaciones.html" title="">D</a></font><font face="Futura Lt BT"><a href="duplicaciones.html" title="">uplicaciones</a></font><font color="#FFFF00" face="Futura Lt BT"> I </font><font face="Futura Lt BT"><a href="diseno_web.html" title="">D</a></font><font face="Futura Lt BT"><a href="diseno_web.html" title="">iseño web</a></font><font color="#FFFF00" face="Futura Lt BT"> I </font><font face="Futura Lt BT"><a href="grabaciones.html" title="">Estudio</a></font><font color="#FFFF00" face="Futura Lt BT"> I </font><font face="Futura Lt BT"><a href="desingpanxo.html" title="">Fotografia</a></font><font color="#FFFF00" face="Futura Lt BT"> I </font><font face="Futura Lt BT"><a href="contacto.html" title="">C</a></font><font face="Futura Lt BT"><a href="contacto.html" title="">ontacto</a></font><font color="#FFFF00" face="Futura Lt BT"> I </font><font face="Futura Lt BT"><a href="quienes.html" title="">Conócenos</a></font><font color="#FFFF00" face="Futura Lt BT"> I</font>
+                         
+                     
+                     
+  <!--                   <img id="barra" src="<?php echo base_url()?>images/barra.gif" />
+                  <nav>
+                      <ul>
+                        
                         <li><a href="">INICIO</a></li>
                         <li><a href="">ACERCA DE </a></li>
                         <li><a href="">QUIENES SOMOS</a></li>
@@ -35,8 +41,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                        
                     </ul>
  
-                </nav>
+                </nav>-->
                 </div>
+                <div id="separacion"></div>
             </div>
     <div id="content"></div>
         

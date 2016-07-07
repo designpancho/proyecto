@@ -190,6 +190,22 @@ class Modelo extends CI_Model{
         
     }
     
+    function insertarClienteEdit($rut,$nombre,$apellido,$direccion,$password,$cantidadReproducciones,$telefono,$correo){
+        $datos=array(              
+                "nombre"=>$nombre,
+                "apellido"=>$apellido,
+                "direccion"=>$direccion,
+                "password"=>$password,
+                "cantidadReproducciones"=>$cantidadReproducciones,
+                "telefono"=>$telefono,
+                "correo"=>$correo
+            );
+         $this->db->where("rut",$rut);
+         $this->db->update("cliente",$datos);
+            
+    }
+    
+    
     function insertarPedido($id_disco,$rut,$cantidad,$fecha_pedido,$fecha_entrega,$valorTotal){
             $datos=array(
             "id_disco"=>$id_disco,
