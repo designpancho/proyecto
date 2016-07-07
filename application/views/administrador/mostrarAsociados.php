@@ -3,7 +3,7 @@
         <p>NO HAY DISCO ALMACENADO</p>
 <?php else:?>
         <table id="tabla">
-            <caption>Asociaciones</caption>
+            <caption> <img style="width: 5%; margin-bottom: -9px;" src="<?php echo base_url()?>images/asocia.png" />    Asociaciones</caption>
             <th>Codigo</th>
             <th>Nombre Cliente</th>
             <th>Nombre Disco</th>
