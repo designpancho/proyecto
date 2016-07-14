@@ -3,7 +3,7 @@
         <caption id="cap">INGRESA AQUI...</caption>
         <tr>
         <td>USUARIO</td>
-            <td>: <input type="text" id="loginUsuario"  placeholder="12333444"></td>
+        <td>: <input type="text" id="loginUsuario" onkeyup="sacarLetra(this)" maxlength="8" placeholder="12333444"></td>
         </tr>
         <tr>
             <td>CLAVE</td>

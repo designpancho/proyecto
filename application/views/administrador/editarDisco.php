@@ -5,22 +5,22 @@
     </tr>
     <tr>
         <td>Nombre</td>
-        <td>: <input id="addnombre" placeholder="Nombre"/></td>
+        <td>: <input id="addnombre" maxlength="45" onkeyup="sacarSigno(this)" placeholder="Nombre"/></td>
     </tr>
     <tr>
         <td>Descripcion</td>
-        <td>: <input id="addDescripcion" placeholder="Descripcion"/></td>
+        <td>: <input id="addDescripcion" maxlength="45" onkeyup="sacarSigno(this)" placeholder="Descripcion"/></td>
     </tr>
     <tr>
         <td>Interprete</td>
-        <td>: <input id="addIntegrante" placeholder="Interprete"/></td>
+        <td>: <input id="addIntegrante" maxlength="45" onkeyup="sacarSigno(this)" placeholder="Interprete"/></td>
     </tr>
     <tr>
         <td>Fecha</td>
-        <td>: <input type="date" id="addFecha" ></td>
+        <td>: <input type="text" readonly="readonly" id="addFecha" ></td>
     </tr>
      <tr>
         <td>Valor</td>
-        <td>: <input id="addValor" placeholder="Valor"/></td>
+        <td>: <input id="addValor" maxlength="11" onkeyup="sacarLetra(this)"  placeholder="Valor"/></td>
     </tr>
 </table>

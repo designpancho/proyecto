@@ -16,6 +16,7 @@ class Controlador extends CI_Controller {
 	{
             
 		$this->load->view('header');
+               // $this->load->view('co');
 	}
         function validaLogin(){
             $data['perfil']=0;    
@@ -50,7 +51,23 @@ class Controlador extends CI_Controller {
 //	$data['links']=$this->pagination->create_links();
                     $data['pedidos']=$dato2->result();
                     
-                    $data['nombre']=$this->session->userdata("nombre");                    
+                    $data['nombre']=$this->session->userdata("nombre"); 
+                    
+                    //CARGA DISCO
+                    $datosDisco = $this->modelo->cargaDisco();
+                    $data['cantidadDisco']=$datosDisco->num_rows();
+                    $data['resultadoDisco']=$datosDisco->result();
+                    
+                    //CARGAR CLIENTE
+                    $datosCliente=$this->modelo->mostrarclientes();
+                    $data['cantidadCliente']=$datosCliente->num_rows();
+                    $data['Clientes']=$datosCliente->result();
+                    
+                    //CARGAR ASOCIACION
+                    $datosAsocia=$this->modelo->mostrarAsocia();
+                    $data['cantidad']=$datosAsocia->num_rows();
+                    $data['Asociado']=$datosAsocia->result();
+                    
                     $this->load->view("administrador/AdmPrincipal",$data);
                 }else{
                     $usuario=$this->session->userdata("usuario");
@@ -66,7 +83,16 @@ class Controlador extends CI_Controller {
                     $data['cantidadReproducciones']=$can;
                     $data['cantidad']=$dato1->num_rows();
                     $data['Compras']=$dato1->result();
-                    
+                   
+//                    $data=$this->session->userdata("usuario");
+            $data2=$this->session->userdata("usuario");
+            date_default_timezone_set("America/Santiago");
+            $fecha = date('Y-m-d');
+            $nuevafecha = strtotime ( '+7 day' , strtotime ( $fecha ) ) ;
+            $nuevafecha = date ( 'Y-m-d' , $nuevafecha );
+            $data['fecha']=$nuevafecha;
+            $data['arrDisco2']=$this->modelo->cargaCombo($data2);            
+//              $data['resul']=$respuesta2->result();
                     
                      $this->load->view("cliente/CliPrincipal",$data);
                     
@@ -392,10 +418,10 @@ class Controlador extends CI_Controller {
                 $this->modelo->updateClaveUsuario($claveNueva,$data,$perfil);
                 
                  $this->session->sess_destroy(); 
-                  $respuesta2="Clave Se Cambio Correctamente";
+                  $respuesta2="CLAVE ACTUALIZADA CORRECTAMENTE... INICIE SESION...";
                  
             }else{
-                 $respuesta2="Debe Seleccionar Checkbox";
+                 $respuesta2="DEBE ACEPTAR CAMBIO";
             }
              echo json_encode(array(
                "respuesta2"=>$respuesta2

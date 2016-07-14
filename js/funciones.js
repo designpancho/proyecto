@@ -11,7 +11,8 @@ function validaLogin(){
             function(pagina, datos){
                 $("#content").html(pagina,datos);
                 Cliente(); 
-                
+                disenoBotones();
+                diseno3();
                 $("#loginBoton").button(
                         
                         
@@ -20,44 +21,47 @@ function validaLogin(){
                             
                         });
                         
-                 
+                  $( "#tabs" ).tabs();
+                   $( "#tabs2" ).tabs().addClass( "ui-tabs-vertical ui-helper-clearfix" );
+                   $( "#tabs2 li" ).removeClass( "ui-corner-top" ).addClass( "ui-corner-left" );
                  $("#btnCerrar").button().click(
                    function(){
                        salir();
                  
                    });
+                   
                    $("#Asociar_disco").button().click(
                        function(){
                         Asociar_disco_modal();   
                            
                        });
-                   $("#verDisco").button().click(
-                   function(){
-                            
-                            actualizaTabla();
-                            cerrarTabla2();
-                           cerrarTabla3();
-                 
-                   });
-                   $("#verAsociado").button().click(
-                       function(){
-                           mostrarAsociado();
-                           cerrarTabla();
-                           cerrarTabla3();
-                       }
-                       
-                   );
-                   $("#verCliente").button().click(
-                       function(){
-                           
-                             verClientes();
-                            cerrarTabla();
-                            cerrarTabla2();
-                       
-                          
-                       }
+//                   $("#verDisco").button().click(
+//                   function(){
+//                            
+//                            actualizaTabla();
+//                            cerrarTabla2();
+//                           cerrarTabla3();
+//                 
+//                   });
+//                   $("#verAsociado").button().click(
+//                       function(){
+//                           mostrarAsociado();
+//                           cerrarTabla();
+//                           cerrarTabla3();
+//                       }
+//                       
+//                   );
+//                   $("#verCliente").button().click(
+//                       function(){
+//                           
+//                             verClientes();
+//                            cerrarTabla();
+//                            cerrarTabla2();
+//                       
+//                          
+//                       }
            
-                        );
+//                        );
                  
                    $("#addCliente").button({
                        icons:{secondary:"ui-icon-plus"},
@@ -138,7 +142,9 @@ function validaLogin(){
                                   if(!error){ 
                                       $(this).dialog("close");
                                       addDisco();
-                                      location.reload();
+                                   window.location="http://localhost/DUPLIDI.CL/#tabs-2";
+                                   location.reload();  
+                                   //location.reload();
                                       
                                   }
 
@@ -197,13 +203,15 @@ function validaLogin(){
                     $("#editarModal").dialog({
                            modal:true, autoOpen:false, width:400, 
                             buttons:{
-                           "Guardar":function(){
+                           "GuardarE":function(){
                                $(this).dialog("close");
                                if(parseInt($("#addValor").val())<=0 ){
                                     mensajes("Complete Campo Valor","error");
 
                                }else{
                                    addDisco();
+                                   window.location="http://localhost/DUPLIDI.CL/#tabs-2";
+                                   location.reload();
                                    //location.reload();
                                }
                            }
@@ -220,6 +228,7 @@ function validaLogin(){
                                     
                                }else{
                                    addClienteEdit();
+                                   window.location="http://localhost/DUPLIDI.CL/#tabs-3";
                                    location.reload();
                                }
                            }
@@ -229,14 +238,18 @@ function validaLogin(){
                     $("#addAsociacionModal").dialog({
                            modal:true, autoOpen:false, width:650, 
                             buttons:{
-                           "GuardarCombobox":function(){
-                               $(this).dialog("close");
+                           "Guardar":function(){
+                              
                                if(parseInt($("#SeleccionClienteCombobox").val())<=0 || parseInt($("#SeleccionDiscoCombox").val())<=0 ){
-                                    mensajes("Complete Seleccion","error");
+                                   $("#msjAsociar").html("<h6>"+"SELECCIONE DISCO O CLIENTE"+"</h6>");
+                                   $("#msjAsociar").fadeIn(100).delay(600).fadeOut(800);
 
                                }else{
+                                  $(this).dialog("close");
                                   AsociarDisco();
-                                   //location.reload();
+                                  window.location="http://localhost/DUPLIDI.CL/#tabs-4";
+                                  location.reload();
+                                  
                                }
                            }
 
@@ -246,15 +259,73 @@ function validaLogin(){
                            modal:true, autoOpen:false, width:400, 
                             buttons:{
                            "GuardarCliente":function(){
-                               $(this).dialog("close");
-                               if(parseString($("#addNombreCliente").val())<=""){
-                                    mensajes("Complete Campos de Cliente","error");
-
-                               }else{
-                                   addCliente();
-                                  //AsociarDisco();
-                                   //location.reload();
-                               }
+                              
+                               var rut=$("#addrutCliente").val();
+                               var nom=$("#addNombreCliente").val();
+                               var ape=$("#addApellidoCliente").val();
+                               var dir=$("#addDireccionCliente").val();
+                               var pas=$("#addPasswordCliente").val();
+                               var tel=$("#addTelefonoCliente").val();
+                               var cor=$("#addCorreoCliente").val();
+                               var error=false;
+                              if (!error && rut.trim().length <=0 || parseInt(rut)<=1) {
+                             
+                                       $("#mensajesAdd2").html("<h6>"+"EL RUT ES REQUERIDO"+"</h6>");
+                                       $("#mensajesAdd2").fadeIn(100).delay(600).fadeOut(800);
+                                       error=true;
+                                       $("#addrutCliente").val("");
+//                                     $(this).dialog("close");
+//                                     $("#addDiscoModal").dialog("open");
+//                                     $(this).dialog("open");
+                                  //   $("#addid_Disco").focus();
+                              }
+                              if (!error && nom.trim().length <=0) {
+                                       $("#mensajesAdd2").html("<h6>"+"El NOMBRE ES REQUERIDO"+"</h6>");
+                                       $("#mensajesAdd2").fadeIn(100).delay(600).fadeOut(800);
+                                       error=true;
+                                       $("#addNombreCliente").focus();
+                              }
+                              if (!error && ape.trim().length <=0) {
+                                       $("#mensajesAdd2").html("<h6>"+"EL APELLIDO ES REQUERIDO"+"</h6>");
+                                       $("#mensajesAdd2").fadeIn(100).delay(600).fadeOut(800);
+                                       error=true;
+                                       $("#addApellidoCliente").focus();
+                              }
+                              if (!error && dir.trim().length <=0) {
+                                       $("#mensajesAdd2").html("<h6>"+"LA DIRECCION ES REQUERIDA"+"</h6>");
+                                       $("#mensajesAdd2").fadeIn(100).delay(600).fadeOut(800);
+                                       error=true;
+                                       $("#addDireccionCliente").focus();
+                              }
+                              if (!error && pas.trim().length <=0) {
+                                       $("#mensajesAdd2").html("<h6>"+"LA PASSWORD ES REQUERIDA"+"</h6>");
+                                       $("#mensajesAdd2").fadeIn(100).delay(600).fadeOut(800);
+                                       error=true;
+                                       $("#addPasswordCliente").focus();
+                              }
+                              if (!error && tel.trim().length <=0 ) {
+                                       $("#mensajesAdd2").html("<h6>"+"EL TELEFONO ES REQUERIDA"+"</h6>");
+                                       $("#mensajesAdd2").fadeIn(100).delay(600).fadeOut(800);
+                                       error=true;
+                                      
+                                       $("#addTelefonoCliente").focus();
+                              }
+                              if (!error && cor.trim().length <=0 ) {
+                                       $("#mensajesAdd2").html("<h6>"+"EL CORREO ES REQUERIDA"+"</h6>");
+                                       $("#mensajesAdd2").fadeIn(100).delay(600).fadeOut(800);
+                                       error=true;
+                                      
+                                       $("#addCorreoCliente").focus();
+                              }
+                             
+                                  if(!error){ 
+                                      $(this).dialog("close"); 
+                                      addCliente();
+                                      
+                                      window.location="http://localhost/DUPLIDI.CL/#tabs-3";
+                                      location.reload();
+                                      
+                                  }
                            }
 
                        } 
@@ -370,6 +441,20 @@ function verClientes(){
     
     
 }
+
+function sacarLetra(input){
+    var elim=/[^0-9]/gi;
+    input.value=input.value.replace(elim,"");
+    
+}
+function sacarSigno(input){
+    var elim=/[^a-z  ñ 0-9]/gi;
+    input.value=input.value.replace(elim,"");
+    
+}
+
+
+
 function disenoBotones(){
     for(i=0; i<parseInt($("#oculto").val());i++){
         $("#editar"+i).button({
@@ -444,7 +529,12 @@ function eliminar2(id_disco2){
             base_url+"Controlador/eliminarDisco",
             {id_disco:id_disco2},
             function(){
-                actualizaTabla();
+              //location.reload();
+              //window.location.reload(true);
+             window.location="http://localhost/DUPLIDI.CL/#tabs-2";
+             location.reload();
+               
+
  
            } );
 }
@@ -453,7 +543,9 @@ function eliminarCliente(rut){
             base_url+"Controlador/eliminarCliente",
             {rut:rut},
             function(){
-                location.reload();
+               window.location="http://localhost/DUPLIDI.CL/#tabs-3";
+               location.reload();
+               
             }
             );
 }
@@ -462,7 +554,8 @@ function cancelarPedido(id_duplicaciones){
             base_url+"Controlador/cancelarPedido",
             {id_duplicaciones:id_duplicaciones},
             function(){
-                location.reload();
+               window.location="http://localhost/DUPLIDI.CL/#tabs-1";
+             location.reload();
                 
            });
 }           
@@ -476,6 +569,9 @@ function editar(id_disco){
                 validaDiscoID(id_disco);
                $("#editarModal").dialog({title:"EDITAR DISCO"});
                $("#editarModal").dialog("open");
+                $( "#addFecha" ).datepicker({
+                    dateFormat: "yy-mm-dd"
+               });
             }    
 
     );
@@ -528,6 +624,9 @@ function agregarDisco(){
                $("#addDiscoModal").html(pagina,datos);
                $("#addDiscoModal").dialog({title:"Agregar Nuevo Disco"});
                $("#addDiscoModal").dialog("open");
+               $( "#addFecha" ).datepicker({
+                    dateFormat: "yy-mm-dd"
+               });
             }    
 
     );
@@ -592,7 +691,8 @@ function addDisco(){
              valor:$("#addValor").val() 
 
            },function(){
-               actualizaTabla();
+             window.location="http://localhost/DUPLIDI.CL/#tabs-2";
+             location.reload();
            }         
 
 
@@ -649,24 +749,39 @@ function validaDiscoID(id_disco2){
 
 
 }
-function cerrarTabla(){
-  
-document.getElementById('CrudDisco').style.display = 'none';
-    
-}
-function cerrarTabla2(){
-  
-document.getElementById('Asocia').style.display = 'none';
-    
-}
-function cerrarTabla3(){
-document.getElementById('divMostraClientes').style.display = 'none';
-    
-}
+//function cerrarTabla(){
+//  
+//document.getElementById('CrudDisco').style.display = 'none';
+//    
+//}
+//function cerrarTabla2(){
+//  
+//document.getElementById('Asocia').style.display = 'none';
+//    
+//}
+//function cerrarTabla3(){
+//document.getElementById('divMostraClientes').style.display = 'none';
+//    
+//}
 
 //CLIENTE
 
 function Cliente(){
+
+
+$("#addPedido2").button({
+       icons:{secondary:"ui-icon-plus"},
+       text:true       
+   }).tooltip({
+       position:{
+           my:"left top",
+           at:"right+5 top-5"           
+       }
+       
+   });
+
+
+
 
 $("#addPedido").button({
        icons:{secondary:"ui-icon-plus"},
@@ -695,9 +810,43 @@ $("#addPedido").button({
    $("#cambioClaveModal").dialog({
            modal:true, autoOpen:false, width:440, 
             buttons:{
-           "Guardar Clave Nueva":function(){
-               $(this).dialog("close");  
-                addUpdateClave();
+           "Guardar Clave Nueva2":function(){
+               
+                               var cla1=$("#claveActual").val();
+                               var cla2=$("#addclaveNueva").val();
+                               var cla3=$("#addclaveConfirmar").val();
+                               var error=false;
+                              if (!error && cla1.trim().length <=0 ) {
+                                       $("#addmensajeConClave").html("<h6>"+"INGRESE CLAVE ACTUAL"+"</h6>");
+                                       $("#addmensajeConClave").fadeIn(100).delay(600).fadeOut(800);
+                                       error=true;
+                                       $("#claveActual").val("");
+//                                     $(this).dialog("close");
+//                                     $("#addDiscoModal").dialog("open");
+//                                     $(this).dialog("open");
+                                  //   $("#addid_Disco").focus();
+                              }
+                              if (!error && cla2.trim().length <=0) {
+                                       $("#addmensajeConClave").html("<h6>"+"INGRESE CLAVE NUEVA"+"</h6>");
+                                       $("#addmensajeConClave").fadeIn(100).delay(600).fadeOut(800);
+                                       error=true;
+                                       $("#addclaveNueva").focus();
+                              }
+                              if (!error && cla3.trim().length <=0) {
+                                       $("#addmensajeConClave").html("<h6>"+"INGRESE CONFIRMACION DE CLAVE"+"</h6>");
+                                       $("#addmensajeConClave").fadeIn(100).delay(600).fadeOut(800);
+                                       error=true;
+                                       $("#addclaveConfirmar").focus();
+                              }
+               
+                                     if(!error){ 
+                                   
+                                     $(this).dialog("close");  
+                                     addUpdateClave();
+                                      
+                                  }
+               
+              
            }
            
        } 
@@ -706,8 +855,43 @@ $("#addPedido").button({
            modal:true, autoOpen:false, width:440, 
             buttons:{
            "Guardar Clave Nueva":function(){
-               $(this).dialog("close");  
-                addUpdateClave();
+               var cla1=$("#claveActual").val();
+                               var cla2=$("#addclaveNueva").val();
+                               var cla3=$("#addclaveConfirmar").val();
+                               var error=false;
+                              if (!error && cla1.trim().length <=0 ) {
+                                       $("#addmensajeConClave").html("<h6>"+"INGRESE CLAVE ACTUAL"+"</h6>");
+                                       $("#addmensajeConClave").fadeIn(100).delay(600).fadeOut(800);
+                                       error=true;
+                                       $("#claveActual").val("");
+//                                     $(this).dialog("close");
+//                                     $("#addDiscoModal").dialog("open");
+//                                     $(this).dialog("open");
+                                  //   $("#addid_Disco").focus();
+                              }
+                              if (!error && cla2.trim().length <=0) {
+                                       $("#addmensajeConClave").html("<h6>"+"INGRESE CLAVE NUEVA"+"</h6>");
+                                       $("#addmensajeConClave").fadeIn(100).delay(600).fadeOut(800);
+                                       error=true;
+                                       $("#addclaveNueva").focus();
+                              }
+                              if (!error && cla3.trim().length <=0) {
+                                       $("#addmensajeConClave").html("<h6>"+"INGRESE CONFIRMACION DE CLAVE"+"</h6>");
+                                       $("#addmensajeConClave").fadeIn(100).delay(600).fadeOut(800);
+                                       error=true;
+                                       $("#addclaveConfirmar").focus();
+                              }
+               
+                                     if(!error){ 
+                                   
+                                     $(this).dialog("close");  
+                                     addUpdateClave();
+                                      
+                                  }
+               
+               
+               
+              
            }
            
        } 
@@ -715,10 +899,38 @@ $("#addPedido").button({
   
    
 }
+
+
+function agregarPedido2(){
+     var hoy = new Date();
+    var dd = hoy.getDate();
+    var mm = hoy.getMonth(); 
+    var yyyy = hoy.getFullYear();
+    $( "#addFecha" ).datepicker({
+              minDate: new Date(yyyy, mm , dd+ 7),
+               dateFormat: "yy-mm-dd",
+             
+              monthNamesShort: [ "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"]
+              
+          });
+    
+}
 function agregarPedido(){
+    var hoy = new Date();
+    var dd = hoy.getDate();
+    var mm = hoy.getMonth(); 
+    var yyyy = hoy.getFullYear();
     $.post(base_url+"Controlador/agregarPedido",{},
     function(pagina, datos){
-          $("#addPedidoModal").html(pagina,datos);              
+          $("#addPedidoModal").html(pagina,datos);
+          
+          $( "#addFecha" ).datepicker({
+              minDate: new Date(yyyy, mm , dd+ 7),
+               dateFormat: "yy-mm-dd",
+             
+              monthNamesShort: [ "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"]
+              
+          });
           $("#addPedidoModal").dialog({title:"AGREGAR PEDIDO NUEVO"});
           $("#addPedidoModal").dialog("open");
         
@@ -732,6 +944,64 @@ function agregarPedido(){
 
 
 function addPedido(){
+                               
+                               var id=$("#Seleccio").val();
+                               var can=$("#addCantidad").val();
+                               var fec=$("#addFecha").val();
+                               var valo=$("#addValor").val();
+                               var error=false;
+                              if (!error && id.trim().length <=0 || parseInt(id)<=1) {
+                             
+                                       $("#addPedidoMensaje").html("<h6>"+"SELECCIONE DISCO"+"</h6>");
+                                       $("#addPedidoMensaje").fadeIn(100).delay(600).fadeOut(800);
+                                       error=true;
+                                       $("#Seleccio").val(0);
+//                                     $(this).dialog("close");
+//                                     $("#addDiscoModal").dialog("open");
+//                                     $(this).dialog("open");
+                                  //   $("#addid_Disco").focus();
+                              }
+                              if (!error && can.trim().length <=0) {
+                                       $("#addPedidoMensaje").html("<h6>"+"INGRESE CANTIDAD"+"</h6>");
+                                       $("#addPedidoMensaje").fadeIn(100).delay(600).fadeOut(800);
+                                       error=true;
+                                       $("#addCantidad").focus();
+                              }
+                              if (!error && fec.trim().length <=0) {
+                                       $("#addPedidoMensaje").html("<h6>"+"LA FECHA ES REQUERIDO"+"</h6>");
+                                       $("#addPedidoMensaje").fadeIn(100).delay(600).fadeOut(800);
+                                       error=true;
+                                       $("#addFecha").focus();
+                              }
+                             
+                             
+                              if (!error && valo.trim().length <=0 || parseInt(valo)<=1) {
+                                       $("#addPedidoMensaje").html("<h6>"+"EL VALOR ES REQUERIDO Y SOLO NUMEROS"+"</h6>");
+                                       $("#addPedidoMensaje").fadeIn(100).delay(600).fadeOut(800);
+                                       error=true;
+                                       $("#addValor").val("");
+                                       $("#addValor").focus();
+                              }
+                             
+                                  if(!error){ 
+                                     // $(this).dialog("close");
+                                     addPedidoFull();
+                                      location.reload();
+                                      
+                                  }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+     
+}
+function addPedidoFull(){
      var can=document.getElementById("addCantidad").value;
      $.post(
             base_url+"Controlador/addPedido",{
@@ -739,8 +1009,12 @@ function addPedido(){
              cantidad:can,
              fechaEntrega:$("#addFecha").val(),
              valorTotal:$("#addValor").val()             
-            },function(){}
-            );
+            },function(){
+                location.reload();
+                
+                
+                
+            });
 }
 
 function calculoValor(){
@@ -836,9 +1110,11 @@ function addUpdateClave(){
              claveNueva:claveNueva,
              check:check             
             },function(datos){
-                $("#mensajesA").html("<h2>"+datos.respuesta2+"</h6>");
-                $("#mensajesA").fadeIn(100).delay(600).fadeOut(800);
-                location.reload();
+                $("#mensajesA").html("<h2>"+datos.respuesta2+"</h2>");
+                $("#mensajesA").fadeIn(100).delay(5000).fadeOut(1000);
+                if (datos.respuesta2=="CLAVE ACTUALIZADA CORRECTAMENTE... INICIE SESION...") {
+                     setTimeout("location.reload()",5000); 
+                }
             },'json'
             );
 }

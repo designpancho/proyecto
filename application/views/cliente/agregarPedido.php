@@ -19,11 +19,11 @@
     </tr>
     <tr>
         <td>CANTIDAD</td>
-        <td>: <input id="addCantidad" onblur="calculoValor(this.value)" maxlength="11" type="number" placeholder="Cantidad..."/></td>
+        <td>: <input id="addCantidad" onblur="calculoValor(this.value)" onkeyup="sacarLetra(this)" maxlength="11"  placeholder="Cantidad..."/></td>
     </tr>
    <tr>
         <td>FECHA ENTREGA</td>
-        <td>: <input type="date" id="addFecha" min="<?php echo $fecha?>" ></td>
+        <td>: <input type="text" id="addFecha"  minDate="<?php echo $fecha?>" readonly="readonly"></td>
     </tr>
      <tr>
         <td>Valor</td>

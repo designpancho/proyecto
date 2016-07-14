@@ -28,6 +28,7 @@
             <td colspan="2"><input type="checkbox" id="checkCambio"  value="Acepta">Acepta Cambio</td>
             
         </tr>
+       
     </table>
     
 </div>
