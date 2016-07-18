@@ -16,7 +16,7 @@ class Controlador extends CI_Controller {
 	{
             
 		$this->load->view('header');
-               // $this->load->view('co');
+              //$this->load->view('co');
 	}
         function validaLogin(){
             $data['perfil']=0;    
@@ -85,13 +85,13 @@ class Controlador extends CI_Controller {
                     $data['Compras']=$dato1->result();
                    
 //                    $data=$this->session->userdata("usuario");
-            $data2=$this->session->userdata("usuario");
-            date_default_timezone_set("America/Santiago");
-            $fecha = date('Y-m-d');
-            $nuevafecha = strtotime ( '+7 day' , strtotime ( $fecha ) ) ;
-            $nuevafecha = date ( 'Y-m-d' , $nuevafecha );
-            $data['fecha']=$nuevafecha;
-            $data['arrDisco2']=$this->modelo->cargaCombo($data2);            
+                    $data2=$this->session->userdata("usuario");
+                    date_default_timezone_set("America/Santiago");
+                    $fecha = date('Y-m-d');
+                    $nuevafecha = strtotime ( '+7 day' , strtotime ( $fecha ) ) ;
+                    $nuevafecha = date ( 'Y-m-d' , $nuevafecha );
+                    $data['fecha']=$nuevafecha;
+                    $data['arrDisco2']=$this->modelo->cargaCombo($data2);            
 //              $data['resul']=$respuesta2->result();
                     
                      $this->load->view("cliente/CliPrincipal",$data);

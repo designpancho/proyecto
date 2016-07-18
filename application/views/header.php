@@ -26,7 +26,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                  <div id="menuPrincipal">
                      
                      <img id="logoDuplidi" src="<?php echo base_url()?>images/logowebletranegra.png" />
-                     <font  color="#FFFF00" face="Futura Lt BT">I </font><font face="Futura Lt BT"><a href="duplicaciones.html" title="">D</a></font><font face="Futura Lt BT"><a href="duplicaciones.html" title="">uplicaciones</a></font><font color="#FFFF00" face="Futura Lt BT"> I </font><font face="Futura Lt BT"><a href="diseno_web.html" title="">D</a></font><font face="Futura Lt BT"><a href="diseno_web.html" title="">iseño web</a></font><font color="#FFFF00" face="Futura Lt BT"> I </font><font face="Futura Lt BT"><a href="grabaciones.html" title="">Estudio</a></font><font color="#FFFF00" face="Futura Lt BT"> I </font><font face="Futura Lt BT"><a href="desingpanxo.html" title="">Fotografia</a></font><font color="#FFFF00" face="Futura Lt BT"> I </font><font face="Futura Lt BT"><a href="contacto.html" title="">C</a></font><font face="Futura Lt BT"><a href="contacto.html" title="">ontacto</a></font><font color="#FFFF00" face="Futura Lt BT"> I </font><font face="Futura Lt BT"><a href="quienes.html" title="">Conócenos</a></font><font color="#FFFF00" face="Futura Lt BT"> I</font>
+                     <font  color="#FFFF00" face="Futura Lt BT">I </font><font face="Futura Lt BT"><a href="<?php echo base_url()?>paginas/duplicaciones.html" title="">D</a></font><font face="Futura Lt BT"><a href="<?php echo base_url()?>paginas/duplicaciones.html" title="">uplicaciones</a></font><font color="#FFFF00" face="Futura Lt BT"> I </font><font face="Futura Lt BT"><a href="<?php echo base_url()?>paginas/diseno_web.html" title="">D</a></font><font face="Futura Lt BT"><a href="<?php echo base_url()?>paginas/diseno_web.html" title="">iseño web</a></font><font color="#FFFF00" face="Futura Lt BT"> I </font><font face="Futura Lt BT"><a href="<?php echo base_url()?>paginas/grabaciones.html" title="">Estudio</a></font><font color="#FFFF00" face="Futura Lt BT"> I </font><font face="Futura Lt BT"><a href="<?php echo base_url()?>paginas/desingpanxo.html" title="">Fotografia</a></font><font color="#FFFF00" face="Futura Lt BT"> I </font><font face="Futura Lt BT"><a href="<?php echo base_url()?>paginas/contacto.html" title="">C</a></font><font face="Futura Lt BT"><a href="<?php echo base_url()?>paginas/contacto.html" title="">ontacto</a></font><font color="#FFFF00" face="Futura Lt BT"> I </font><font face="Futura Lt BT"><a href="<?php echo base_url()?>paginas/quienes.html" title="">Conócenos</a></font><font color="#FFFF00" face="Futura Lt BT"> I</font>
                          
                      
                      
@@ -46,6 +46,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <div id="separacion"></div>
             </div>
     <div id="content"></div>
+    <div id="relleno"></div>
         
     <div id="footer">
         <h6 id="footerInfo" >WWW.DUPLIDI.CL - FONO: +569 4444444 - CORREO: DUPLIDI@GMAIL.COM</h6>

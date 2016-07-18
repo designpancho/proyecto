@@ -1,5 +1,33 @@
 $(document).ready(function(){
     validaLogin();
+    var cont=0
+        function cambia() {
+        cont++;
+        switch(cont%5+1)
+         {
+         case 1:
+         document.getElementById("fotocambia").src="images/banner_1.png";
+         break;
+         case 2:
+         document.getElementById("fotocambia").src="images/banner_2.png";
+         break;
+         case 3:
+         document.getElementById("fotocambia").src="images/banner_3.png";
+         break;
+         case 4:
+         document.getElementById("fotocambia").src="images/banner_4.png";
+         break;
+         case 5:
+         document.getElementById("fotocambia").src="images/banner_5.png";
+         break;
+         }
+
+        }
+        function inicio() {
+        setInterval(cambia, 3000);
+        }
+        window.onload=inicio;
+    
 //    $('#example').DataTable( {
 //        "pagingType": "full_numbers"
 //    } );
@@ -30,7 +58,14 @@ function validaLogin(){
                  
                    });
                    
-                   $("#Asociar_disco").button().click(
+                   $("#Asociar_disco").button({
+                       icons:{secondary:"ui-icon-plus"},
+                       text:true    
+                   }).tooltip({
+                       position:{
+                           my:"left top",
+                           at:"right+5 top-5" }
+                   }).click(
                        function(){
                         Asociar_disco_modal();   
                            
@@ -236,7 +271,7 @@ function validaLogin(){
                        } 
                     });
                     $("#addAsociacionModal").dialog({
-                           modal:true, autoOpen:false, width:650, 
+                           modal:true, autoOpen:false, width:750,height:250, 
                             buttons:{
                            "Guardar":function(){
                               
@@ -375,6 +410,8 @@ function Asociar_disco_modal(){
                 $("#addAsociacionModal").html(pagina,datos);                
                $("#addAsociacionModal").dialog({title:"Asociar Disco"});
                $("#addAsociacionModal").dialog("open");
+               $("#SeleccionClienteCombobox").selectmenu();
+               $("#SeleccionDiscoCombox").selectmenu();
             }    
             );
     
@@ -768,6 +805,8 @@ function validaDiscoID(id_disco2){
 
 function Cliente(){
 
+
+$("#Seleccio").selectmenu();
 
 $("#addPedido2").button({
        icons:{secondary:"ui-icon-plus"},

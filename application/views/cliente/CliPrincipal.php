@@ -5,11 +5,11 @@
 
 <div id="tabs">
   <ul>
-    <li><a href="#tabs-1">VER PEDIDO</a></li>
-    <li><a href="#tabs-2" onclick="agregarPedido2()">AGREGAR PEDIDO</a></li>
-    <li><a href="#tabs-3" onclick="cambioClave()">CAMBIAR CLAVE</a></li>
+    <li><a href="#tabs-6">VER PEDIDO</a></li>
+    <li><a href="#tabs-7" onclick="agregarPedido2()">AGREGAR PEDIDO</a></li>
+    <li><a href="#tabs-8" onclick="cambioClave()">CAMBIAR CLAVE</a></li>
   </ul>
-  <div id="tabs-1">
+  <div id="tabs-6">
             <div id="divComprasRealizadas">
         <?php if($cantidad==0):?>
                 <p>No Hay Compras Realizadas</p>
@@ -41,7 +41,7 @@
                 <input type="hidden" id='oculto' value='<?php echo $i?>'/> 
         </div>
   </div>
-  <div id="tabs-2">
+  <div id="tabs-7">
                   <table>
                 <tr>
                      <td rowspan="5"><img style="width: 100%; margin-bottom: -5px;" src="<?php echo base_url()?>images/disco.png" /> </td>
@@ -84,7 +84,7 @@
                 </tr>
             </table>
   </div>
-  <div id="tabs-3">
+  <div id="tabs-8">
     <div id="mensajesA"></div>
   </div>
 </div>

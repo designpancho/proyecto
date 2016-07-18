@@ -34,7 +34,11 @@
   .ui-tabs-vertical .ui-tabs-nav li a { display:block; }
   .ui-tabs-vertical .ui-tabs-nav li.ui-tabs-active { padding-bottom: 0; padding-right: .1em; border-right-width: 1px; }
   .ui-tabs-vertical .ui-tabs-panel { padding: 1em; float: right; width: 40em;}
-  </style>
+  #rel{
+      height: 38px;
+  }
+ 
+ </style>
 
 <div id="tabs2">
   <ul>
@@ -46,6 +50,7 @@
     
   </ul>
   <div id="tabs-1">
+      <div id="rel"></div>
             <div id="divComprasRealizadas">
                         <?php if($cantidad==0):?>
                                 <p>NO HAY PEDIDOS</p>
@@ -89,7 +94,7 @@
   </div>
     <div id="tabs-2" class="dis">
 <!--     <H2>DISCO</H2>-->
-       <button id="addDisco" onclick="agregarDisco()">Nuevo Disco</button>  
+       <button id="addDisco" onclick="agregarDisco()">NUEVO</button>  
       <div id="CrudDisco">
                     <?php if($cantidadDisco==0):?>
                             <p>NO HAY DISCO REALIZADOS</p>
@@ -130,12 +135,12 @@
   </div>
   <div id="tabs-3">
 <!--   <H2>CLIENTE</H2>-->
-   <button id="addCliente" onclick="agregarCliente()">Nuevo Cliente</button>
+   <button id="addCliente" onclick="agregarCliente()">NUEVO</button>
                    <div id="divMostraClientes">
                             <?php if($cantidadCliente==0):?>
                                     <p>NO HAY CLIENTES REGISTRADOS</p>
                             <?php else:?>
-                                    <table id="tabla">
+                                    <table id="tabla" >
                                         <caption><img style="width: 4%; margin-bottom: -8px;" src="<?php echo base_url()?>images/cliente.png" />CLIENTE</caption>
 
                                         <th>RUT</th>
@@ -181,7 +186,7 @@
   </div>
     <div id="tabs-4">
 <!--    <H2>ASOCIAR</H2><button id="Asociar_disco" >Nueva Asociacion</button>-->
-                <button id="Asociar_disco" >Asociar Disco</button>
+                <button id="Asociar_disco" >NUEVO</button>
                 
             <div id="Asocia">
                 <?php if($cantidad==0):?>

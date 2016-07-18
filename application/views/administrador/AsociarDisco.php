@@ -1,8 +1,8 @@
-<h4>Asociar Disco-Cliente</h4>
+
 <table>
     <tr>
         <td>Cliente</td>
-        <td>:
+        <td>
              <select id="SeleccionClienteCombobox">	
                  <option selected value="0">Seleccione Cliente</option>
                      <?php foreach($cliente2 as $valor2):?>
@@ -11,10 +11,10 @@
                     <?php endforeach?>
              </select>
         </td>
-        
+        <td>        </td>
          <td>Disco</td>
 
-        <td>: 
+        <td>  
             <select id="SeleccionDiscoCombox">	
             <option selected value="0">Seleccione Disco</option>
              
